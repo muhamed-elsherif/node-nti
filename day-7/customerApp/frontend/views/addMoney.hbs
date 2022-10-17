@@ -1,0 +1,26 @@
+{{>header}}
+{{>navbar}}
+  <section class="row">
+    <table class="table table-stripped">
+      <thead>
+        <tr>
+          <th>ID: {{customerData.id}}</th>
+          <th>name: {{customerData.name}}</th>
+        </tr>
+        <tr>
+          <th>Email: {{customerData.email}}</th>
+          <th>Balance: {{customerData.number}}</th>
+        </tr>
+      </thead>
+    </table>
+  </section>
+
+  <section>
+    <form action="addMoneyMethod/{{customerData.id}}" method="POST">
+        <div class="mb-3">
+        <input name="number" placeholder="Enter The Value" class="form-control">
+        </div>
+    </form>
+  </section>
+</div>
+{{>footer}}

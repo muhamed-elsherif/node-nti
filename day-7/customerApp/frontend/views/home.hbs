@@ -1,0 +1,31 @@
+{{>header}}
+{{>navbar}}
+  <a href="/add" class="btn btn-primary">
+  Add User
+  </a>
+  <section class="row">
+    <table class="table table-stripped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each allCustomers}}
+        <tr>
+          <td>{{id}}</td>
+          <td>{{name}}</td>
+          <td>
+            <a href="/account/{{id}}" class="btn btn-primary mx-2">Current</a>
+            <a href="/addMoney/{{id}}" class="btn btn-success mx-2">Add</a>
+            <a href="/delete/{{id}}" class="btn btn-danger mx-2">Withdraw</a>
+          </td>
+        </tr>
+  {{/each}}
+      </tbody>
+    </table>
+  </section>
+</div>
+{{>footer}}

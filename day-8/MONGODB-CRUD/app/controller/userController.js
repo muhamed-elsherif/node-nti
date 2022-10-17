@@ -1,42 +1,64 @@
-const connect = require("../../db/connect")
-
-
-class User {
-    static home = (req,res)=> {
-        res.render("home")
+const connect = require('../../db/connect')
+const ObjectId= require("mongodb").ObjectId
+class User{
+    static add = (req, res)=>{
+        res.render("add", {pageTitle:"add New User"})
+    }
+    static addLogic = (req, res)=>{
+        connect(async(err, db)=>{
+         if(err)return res.render("error404", {pageTitle:"database error 1"})
+          try{
+            req.body.status? req.body.status=true: req.body.status=false
+            await db.collection("user").insertOne(req.body)
+            res.redirect("/")
+            return ;
+          }
+          catch(e){
+            res.render("error404", {pageTitle:"database error 2"})
+          }
+                
+        })
+    }
+    static index = (req, res)=>{
+        connect(async(err, db)=>{
+            if(err) res.render("err404", {pageTitle:"database error 1"})
+             try{
+                const data = await db.collection("user").find().toArray()
+                res.render("home", {
+                    pageTitle:"All Users",
+                    data,
+                    isEmpty : !data.length
+                })
+             }
+             catch(e){
+                res.send(e.message)
+             }
+            })
     }
 
-    static edit = (req,res)=> {
-        res.render("edit")
-    }
-
-    static single = (req,res)=> {
+    static single = (req, res)=>{
         res.render("single")
     }
-
-    static del = (req,res)=> {
-        res.render("del")
+    static edit = (req, res)=>{
+        res.render("edit")
     }
-
-    static add = (req,res)=> {
-        res.render("add")
+    static addAddr = (req, res)=>{
+        res.render("addAddr")
     }
-    static addLogic = (req,res)=> {
-        console.log(1)
-         connect((err,db)=>{
-             console.log(2)
-             if(err) return res.render("error404",{pageTitle: "Page not found"})
-console.log(3)
-                 db.collection("users").insertOne(req.body)
-                 .then(result => res.redirect("/"))
-           
-               .catch( e =>{
-                 console.log(e.message)
-                 res.render("error404",{pageTitle: "Page not found"})
-             })
-
-         })
+    static delUser = (req, res)=>{
+        connect(async(err, db)=>{
+            if(err) res.render("err404", {pageTitle:"database error 1"})
+             try{
+                const data = await db.collection("user").deleteOne({_id: new ObjectId(req.params.id)})
+                res.redirect("/")
+             }
+             catch(e){
+                res.send(e.message)
+             }
+            })
+    }
+    static delAddr = (req, res)=>{
+        res.send("delAddr")
     }
 }
-
 module.exports = User
