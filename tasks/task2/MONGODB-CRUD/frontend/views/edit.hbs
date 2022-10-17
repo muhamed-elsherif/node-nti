@@ -1,0 +1,25 @@
+{{>header}}
+{{>navbar}}
+<section class="container">
+<h3 class="text-center my-3 text-primary">Edit User Data</h3>
+<form method="post"> 
+    <div class="mb-3">
+    <label class="form-label">Full Name</label>
+    <input class="form-control" name="fullName">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email address</label>
+    <input class="form-control" name="email">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Age</label>
+    <input class="form-control" name="age">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="status">
+    <label class="form-check-label" for="exampleCheck1">Status</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Edit</button>
+</form>
+</section>
+{{>footer}}
