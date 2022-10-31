@@ -1,0 +1,12 @@
+<section class="container">
+    <div class="row">
+        <article class="col-md-4 col-12" *ngFor="let pro of products ; let i=index; ">
+            <div class="m-3 border border-3">
+                <img [src]="pro.thumbnail" class="img-fluid">
+                <h4>{{pro.title}}</h4>
+                <p>{{pro.price}}</p>
+            </div>
+
+        </article>
+</div>
+</section>

@@ -1,0 +1,85 @@
+<section class="h-100 h-custom" style="background-color: #8fc4b7;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-8 col-xl-6">
+          <div class="card rounded-3">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
+              class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
+              alt="Sample photo">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registration Info</h3>
+
+
+              <div class="alert alert-success">
+                value=> {{registerFrom.value}}
+              </div>
+
+              <form [formGroup]="registerFrom" class="px-md-2" (ngSubmit)="handleRegister()" >
+
+                <div class="alert alert-success">
+                  value=> {{registerFrom.value}}
+                </div>
+  
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example1q" formControlName ="fn" class="form-control"required/>
+                  <label class="form-label" for="form3Example1q">Frist Name</label>
+                  <!-- <div class="alert alert-danger" *ngIf="fn.invalid && (fn.touched || register.submitted)">
+                    <li *ngIf="fn.errors?.['required']"> frist name is required</li>
+                  </div> -->
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example1q" formControlName="ln" class="form-control"  required/>
+                  <label class="form-label" for="form3Example1q">Last Name</label>
+                  <!-- <div class="alert alert-danger" *ngIf="ln.invalid && (ln.touched || register.submitted)">
+                    <li *ngIf="ln.errors?.['required']"> last name is required</li>
+                  </div> -->
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="number" id="form3Example1q" formControlName ="age" class="form-control" required/>
+                  <label class="form-label" for="form3Example1q">Age</label>
+                  <!-- <div class="alert alert-danger" *ngIf="age.invalid && (age.touched || register.submitted)">
+                    <li *ngIf="age.errors?.['required']"> age is required</li>
+                  </div> -->
+                </div>
+  
+                <div class="form-outline mb-4">
+                  <input type="email" id="form3Example1q" formControlName ="email" class="form-control" required/>
+                  <label class="form-label" for="form3Example1q">email</label>
+                  <!-- <div class="alert alert-danger" *ngIf="email.invalid && (email.touched || register.submitted)">
+                    <li *ngIf="email.errors?.['required']"> email is required</li>
+
+                  </div> -->
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example1q" formControlName="username" class="form-control"  required/>
+                  <label class="form-label" for="form3Example1q">userName</label>
+                  <!-- <div class="alert alert-danger" *ngIf="username.invalid && (username.touched || register.submitted)">
+                    <li *ngIf="username.errors?.['required']"> username is required</li>
+                  </div> -->
+
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example1q" formControlName="password" class="form-control"  required/>
+                  <label class="form-label" for="form3Example1q">password</label>
+                  <!-- <div class="alert alert-danger" *ngIf="password.invalid && (password.touched || register.submitted)">
+                    <li *ngIf="password.errors?.['required']"> password is required</li>
+                  </div> -->
+                </div>
+  
+                
+  
+                
+  
+                <button  class="btn btn-success btn-lg mb-1">Submit</button>
+  
+              </form>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
